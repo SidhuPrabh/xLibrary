@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace LibraryWeb.Migrations
+namespace Library.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCategoryToDatabase : Migration
+    public partial class AddCategoryToDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

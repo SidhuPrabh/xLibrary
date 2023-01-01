@@ -1,8 +1,9 @@
-﻿using LibraryWeb.Data;
-using LibraryWeb.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Library.DataAccess;
+using Library.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace LibraryWeb.Controllers
+namespace Library.Controllers
 {
     public class CategoryController : Controller
     {
