@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Library.DataAccess;
+using Library.DataAccess.Repository;
+using Library.DataAccess.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 //builder.Services.AddRazorPages()
@@ -11,7 +13,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
-//add Razor runtime compilation for .net before v6.0
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
 var app = builder.Build();
