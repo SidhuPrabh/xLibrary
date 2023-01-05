@@ -3,8 +3,9 @@ using Library.DataAccess;
 using Library.Models;
 using Library.DataAccess.Repository.IRepository;
 
-namespace Library.Controllers
+namespace LibraryWeb.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -29,7 +30,7 @@ namespace Library.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category obj)
         {
-            if(obj.Name== obj.DisplayOrder.ToString())
+            if (obj.Name == obj.DisplayOrder.ToString())
             {
                 ModelState.AddModelError("Name", "The Display Order cannot exactly match the Name.");
             }
@@ -46,14 +47,14 @@ namespace Library.Controllers
         //GET
         public IActionResult Edit(int? id)
         {
-            if (id == null || id==0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
             //var categoryFromDb = _db.Categories.Find(id);
             var categoryFromDb = _unitOfWork.Category.GetFirstOrDefault(c => c.Id == id);
             //var categoryFromDb = _db.Categories.SingleOrDefault(c => c.Id == id);
-            if(categoryFromDb == null)
+            if (categoryFromDb == null)
             {
                 return NotFound();
             }

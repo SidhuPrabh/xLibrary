@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Library.Models;
-using Library.DataAccess.Repository;
 
 namespace Library.DataAccess
 {
@@ -13,5 +12,6 @@ namespace Library.DataAccess
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<CoverType> CoverTypes { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
